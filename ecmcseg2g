@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<input type="text" id="ca" value="" style="width: 20px">
+x<sup>2</sup> +
+<input type="text" id="cb" value="" style="width: 20px">
+x + 
+<input type="text" id="cc" value="" style="width: 20px">
+= 0
+<button onclick="solu()">Solu</button>
+<p></p>
+x<sub>1</sub> =
+<input type="text" id="sx1" value="" style="width: 95px">
+<p></p>
+x<sub>2</sub> =
+<input type="text" id="sx2" value="" style="width: 95px">
+
+<p>Soluciones de <b>a</b><i>x</i><sup>2</sup> + <b>b</b><i>x</i> + <b>c</b> = 0.</p>
+<p>ecabrera <b>ecmathcode</b> sdqdr 2017.</p>
+
+<script>
+apag()
+
+function apag() {
+   document.getElementById("sx1").disabled = true
+   document.getElementById("sx2").disabled = true 
+   document.getElementById("ca").focus()
+}
+
+function solu() {
+    var a = Number(document.getElementById("ca").value)
+    var b = Number(document.getElementById("cb").value)
+    var c = Number(document.getElementById("cc").value)
+	var r, i, x1, x2
+	var d = b*b - 4*a*c
+	if (d > 0) {
+	   d = Math.sqrt(d)
+	   x1 = (-b + d)/(2*a)
+	   x2 = (-b - d)/(2*a)
+	   document.getElementById("sx1").value = x1.toString()
+	   document.getElementById("sx2").value = x2.toString()
+	}
+	else if (d == 0) {
+	   x1 = -b/(2*a)
+	   document.getElementById("sx1").value = x1.toString()
+	   document.getElementById("sx2").value = x1.toString()
+	}
+	else {
+	   r = -b/(2*a)
+	   i = d/(2*a)
+       document.getElementById("sx1").value = "(" + r.toString() + ", "+ i.toString() + "i)"
+	   document.getElementById("sx2").value = "(" + r.toString() + ", " + -i.toString() + "i)"
+    } 
+}
+</script>
+
+</body>
+</html>
